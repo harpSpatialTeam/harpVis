@@ -4,21 +4,40 @@
 \alias{plot_spatial_verif}
 \title{Plot spatial verification scores}
 \usage{
-plot_spatial_verif(verif_data, score, filter_by = NULL, ...)
+plot_spatial_verif(
+  verif_data,
+  score,
+  filter_by = NULL,
+  show_data = FALSE,
+  plot_opts = list(),
+  colour_theme = "bw",
+  base_size = 11,
+  base_family = "",
+  base_line_size = base_size/22,
+  base_rect_size = base_size/22,
+  legend_position = "right",
+  tag_position = "left",
+  num_legend_rows = NULL,
+  plot_caption = "",
+  leadtimes_by = "hours",
+  ...
+)
 }
 \arguments{
 \item{verif_data}{Output from \link[harpSPatial]{spatial_verify}}
 
-\item{score}{The score to plot. Currently only SAL, FSS are available.
-More to come.}
+\item{score}{The score to plot.}
 
 \item{filter_by}{Filter the data before plotting. Must be wrapped inside the
 \link[dplyr]{vars} function. This can be useful for making a single plot
 where there are many groups. For example, if the data contains various models
 the data can be filtered with
 e.g. \code{filter_by = vars(det_model == "be13", fctime == 0)}.}
+
+\item{show_data}{Shows input structure before plotting}
+
+\item{plot_opts}{A list of plotting options that may be passed from outside, some may not be used}
 }
 \description{
-\code{plot_spatial_verif} is used to plot verification scores computed by
-functions from the harpSpatial package.
+Plot spatial verification scores
 }
